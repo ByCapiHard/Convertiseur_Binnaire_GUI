@@ -1,4 +1,3 @@
-
 from tkinter import *
 from tkinter import messagebox
 
@@ -23,18 +22,27 @@ entry = Entry(frame,width=40)
 entry.pack()
 
 def bianire():
-    res=int(entry.get())
-    nb=8
-    if res == 0:
-        return "0".zfill(nb)
-    if res<0:
-        res += 1<<nb
-    b=""
-    while res != 0:
-        res, r = divmod(res, 2)
-        b = "01"[r] + b
-    messagebox.showinfo(title="Resultat", message="La convertion de {} est de {}".format(entry.get(),b.zfill(nb)))
+        
+    try:
+        res=int(entry.get())
+        nb=8
+        if res == 0:
+            return "0".zfill(nb)
+        if res<0:
+            res += 1<<nb
+        b=""
+        while res != 0:
+            res, r = divmod(res, 2)
+            b = "01"[r] + b
+        messagebox.showinfo(title="Resultat", message="La convertion de {} est de {}".format(entry.get(),b.zfill(nb)))
+        
+    except (RuntimeError, TypeError, NameError, ValueError):
+        messagebox.showerror(title="Erreur",message="Veuillez mettre un decimal non un chiffre à virgule (application en beta)")
 boutton=Button(frame, bg="#87eda2",text="Convertir", command=bianire).pack()
 frame.pack(side=RIGHT,expand=YES)
 
 root.mainloop()
+
+
+
+    
