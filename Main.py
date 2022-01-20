@@ -37,7 +37,7 @@ def bianire():
         messagebox.showinfo(title="Resultat", message="La convertion de {} est de {}".format(entry.get(),b.zfill(nb)))
         
     except (RuntimeError, TypeError, NameError, ValueError):
-        messagebox.showerror(title="Erreur",message="Veuillez mettre un decimal non un chiffre à virgule (application en beta)")
+        messagebox.showerror(title="Erreur",message="Veuillez mettre un decimal non un chiffre à virgule (application en beta), ni une chaine de caractére")
 boutton=Button(frame, bg="#87eda2",text="Convertir", command=bianire).pack()
 frame.pack(side=RIGHT,expand=YES)
 
